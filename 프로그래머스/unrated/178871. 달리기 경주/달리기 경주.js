@@ -1,19 +1,20 @@
 function solution(players, callings) {
     // playerObj = {player: rank}, rankObj = {rank: player}
-    let playerObj = {};
-    let rankObj = {};
+    let obj = {};
     players.forEach((player, idx) => {
-        playerObj[player] = idx;
-        rankObj[idx] = player;
+        obj[player] = idx;
     })
     // callings 돌면서 obj value 바꾸기
     callings.forEach(player => {
-        let overtaken = rankObj[playerObj[player] - 1];
-        rankObj[playerObj[overtaken]] = player
-        rankObj[playerObj[player]] = overtaken
-        playerObj[player] -= 1
-        playerObj[overtaken] += 1
+        let rank = obj[player]
+        let overtaken = players[rank - 1];
+        
+        obj[overtaken] += 1
+        obj[player] -= 1
+        
+        players[rank] = overtaken
+        players[rank-1] = player
     })
     // obj를 배열로 만들어 return
-    return Object.values(rankObj);
+    return players;
 }
