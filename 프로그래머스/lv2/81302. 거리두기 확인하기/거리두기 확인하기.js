@@ -1,6 +1,5 @@
 function solution(places) {
     function check (arr) {
-        arr = arr.map(row => row.split(''));
         for (let i=0; i<5; i++) {
             for (let j=0; j<5; j++) {
                 // 인접한 P가 존재하는 경우 return 0
