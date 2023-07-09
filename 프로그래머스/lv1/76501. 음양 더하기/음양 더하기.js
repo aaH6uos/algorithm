@@ -1,11 +1,5 @@
 function solution(absolutes, signs) {
-    let answer = 0;
-    absolutes.forEach((abs, idx) => {
-        if (signs[idx]) {
-            answer += abs
-        } else {
-            answer -= abs
-        }
-    })
-    return answer;
+    return absolutes.reduce((acc, val, idx) => (
+        acc += val * (signs[idx] ? 1 : -1)
+    ), 0)
 }
