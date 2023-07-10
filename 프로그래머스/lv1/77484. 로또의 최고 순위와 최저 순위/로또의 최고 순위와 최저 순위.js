@@ -4,7 +4,7 @@ function solution(lottos, win_nums) {
     for (let num of lottos) {
         if (num == 0) {
             maybe ++
-        } else if (win_nums.indexOf(num) != -1) {
+        } else if (win_nums.includes(num)) {
             match ++
         }
     }
