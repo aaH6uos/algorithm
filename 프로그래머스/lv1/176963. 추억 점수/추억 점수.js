@@ -1,13 +1,11 @@
 function solution(name, yearning, photo) {
-    const map = {};
-    name.forEach((name, idx) => {
-        map[name] = yearning[idx]
-    })
-    const answer = photo.map(people => (
-        people.reduce((acc, name) => {
-            let score = map[name] ?? 0
-            return acc + score
-        }, 0)
-    ))
-    return answer;
+  const getScore = (people) => {
+      let score = people.reduce((sum, person) => {            
+          let idx = name.indexOf(person);
+          sum += idx != -1 ? yearning[idx] : 0
+          return sum
+      }, 0)
+      return score
+  }
+  return photo.map((people) => getScore(people));
 }
